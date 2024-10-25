@@ -7,9 +7,11 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import Sidebar from "./Sidebar";
 
 export default function Header() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -82,13 +84,35 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div>
+        <div className="flex gap-5 items-center">
           <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
             <UserButton />
           </SignedIn>
+          <div className="lg:hidden">
+            <button
+              className="p-2 rounded-lg bg-black text-white"
+              aria-label="Open Menu"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -99,6 +123,7 @@ export default function Header() {
         aria-valuemin={0}
         aria-valuemax={100}
       />
+      {isMenuOpen && <Sidebar setMenu={setIsMenuOpen} />}
     </header>
   );
 }
