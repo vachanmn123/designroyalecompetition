@@ -22,7 +22,7 @@ export default function Offerings() {
           />
         </div>
       </div>
-      <div className="absolute right-[20%] flex flex-col gap-5">
+      <div className="absolute lg:right-[20%] right-[5%] flex flex-col gap-5">
         <div className="bg-white p-5 rounded-lg text-black text-2xl">MEN</div>
         <div className="bg-white p-5 rounded-lg text-black text-2xl">WOMEN</div>
         <div className="bg-white p-5 rounded-lg text-black text-2xl">KIDS</div>
