@@ -5,6 +5,7 @@ import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 import AnimatedCursor from "react-animated-cursor";
 import BackToTop from "../components/BackToTop";
+import Popup from "../components/Popup";
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AnimatedCursor outerSize={24} innerSize={20} />
       <App />
       <BackToTop />
+      <Popup />
     </ClerkProvider>
   </React.StrictMode>
 );
